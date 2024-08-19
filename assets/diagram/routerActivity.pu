@@ -1,0 +1,20 @@
+@startuml
+
+start
+
+: Recieve request from router;
+if (req.pathname is exist) then (yes)
+  if (req.method is exist) then (yes)
+    : Send req to controller;
+    : Recieve response from controller;
+    : Send response for client;
+  else (no)
+    : Send error 405;
+  endif
+else (no)
+  : Send error 404;
+endif
+
+end
+
+@enduml
